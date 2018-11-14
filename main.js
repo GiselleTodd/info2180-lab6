@@ -1,22 +1,30 @@
 window.onload = function() {
-  let url = "https://info2180-lab6-gist.c9users.io/request.php?q=definition"
-  let search = document.getElementById("#search-button").addEventListener("click", function() {
-    let defRequest = new XMLHttpRequest();
-    defRequest.onreadystatechange = function(){
-           
-          if (defRequest.readyState === 4 && defRequest.status == 200){
-              alert (defRequest.responseText);
+
+  var searchButton = document.getElementById("seachButton");
+  console.log (searchButton);
+
+  searchButton.onclick = function(){
+      var xHttp = new XMLHttpRequest();
+      var url = "request.php?q=definition";
+      xHttp. onreadystatechange = function(){
+          if (xHttp.readyState === XMLHttpRequest.DONE){
+              if (xHttp.status === 200){
+                alert(xHttp.responseText);
+
+              }
 
           }
-        
-      }
-      defRequest.open('GET', 'request.php', true);
-      defRequest.send();
 
-    });
-``
-    
+      }
+
+
+
+      xHttp.open("GET", url, true);
+      xHttp.send();
+
   }
+  
+}
   
 
 
